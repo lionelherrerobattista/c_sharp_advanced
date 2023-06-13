@@ -10,6 +10,18 @@ namespace c_sharp_advanced
     {
         static void Main(string[] args)
         {
+            var processor = new PhotoProcessor();
+            var filters = new PhotoFilters();
+            Action<Photo> filterHandler = filters.ApplyBrightness; // add method
+            filterHandler += filters.ApplyContrast; // add more than 1
+            filterHandler += RemoveRedEyeFilter;
+
+            processor.Process("photo.jpg", filterHandler);
+        }
+
+        static void RemoveRedEyeFilter(Photo photo)
+        {
+            Console.WriteLine("Apply RemoveRedEye");
         }
     }
 }
