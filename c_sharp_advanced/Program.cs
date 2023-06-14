@@ -10,6 +10,10 @@ namespace c_sharp_advanced
     {
         static void Main(string[] args)
         {
+            string post = "This is supposed to be a very long blog post blah blah blah...";
+            var shortenedPost = post.Shorten(5);
+
+            Console.WriteLine(shortenedPost);
         }
     }
 }
